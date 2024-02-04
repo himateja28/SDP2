@@ -73,8 +73,55 @@ const applySchema = msh({
     },
 })
 
+const acceptedSchema = msh({
+    name:{
+        type:String,
+        // required:true,
+    },
+    email: {
+        type: String,
+        // required: true,
+        unique: true,
+        trim: true,
+        lowercase: true, 
+      },
+
+    aadhaar:{
+        type:Number,
+        // required:true,
+        unique:true,
+    },
+    father_name:{
+        type:String,
+        // required:true,
+    },
+    mother_name:{
+        type:String,
+        // required:true,
+    },
+    pincode:{
+        type:Number,
+        // required:true,
+    },
+    address:{
+        type:String,
+        // required:true,
+    },
+    
+    applied_visa:{
+        type:String,
+        // required:true,
+    },
+    status:{
+        type:String,
+        default:"Processing"
+    },
+})
+
 const Register =  mongoose.model('Register',registerSchema);
 const Apply = mongoose.model('Apply',applySchema);
+const AcceptedVisa = mongoose.model('AcceptedVisa',acceptedSchema)
+const RejectedVisa = mongoose.model('RejectedVisa',applySchema)
 
 app.get('/',(req,res)=>{
     res.send('home')
@@ -114,6 +161,33 @@ app.get('/appiledusers',async(req,res)=>{
 app.get('/check',async(req,res)=>{
     res.send(await Apply.find(req.body))
 })
+
+app.post('/accepted',async(req,res)=>{
+    try {
+        console.log(req.body)
+        const newAcceptedVisa = new AcceptedVisa(req.body);
+        await newAcceptedVisa.save();
+        await Apply.deleteOne({_id:req.body._id})
+    }
+    catch (error) {
+        console.error('Error during registration:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+      }
+})
+
+app.post('/rejected',async(req,res)=>{
+    try {
+        console.log(req.body)
+        const newRejectedVisa = new RejectedVisa(req.body);
+        await newRejectedVisa.save();
+        await Apply.deleteOne({_id:req.body._id})
+    }
+    catch (error) {
+        console.error('Error during registration:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+      }
+})
+
 
 
 app.listen(port,()=>{
