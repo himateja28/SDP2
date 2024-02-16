@@ -79,7 +79,7 @@ function Home() {
                 <div id="w-node-_2df555e3-597c-6855-5962-d6e86a0fe40a-68ca730e" class="pricing-card-three"><img
                         src={travel} loading="lazy" alt="" class="pricing-image" />
                     <h3>Travel Visa</h3>
-                    <p class="pricing-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p><a
+                    <p class="pricing-card-text">We provide travel visa for tourits</p><a
                         href="#" class="text-link-arrow-2 w-inline-block">
                         <div>Learn more</div>
                         <div class="arrow-embed-2 w-embed"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -93,7 +93,7 @@ function Home() {
                 <div id="w-node-_2df555e3-597c-6855-5962-d6e86a0fe414-68ca730e" class="pricing-card-three"><img
                         src={student} loading="lazy" alt="" class="pricing-image" />
                     <h3>Studnet Visa</h3>
-                    <p class="pricing-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p><a
+                    <p class="pricing-card-text">We provide visa for students for education purposes</p><a
                         href="#" class="text-link-arrow-2 w-inline-block">
                         <div>Learn more</div>
                         <div class="arrow-embed-2 w-embed"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"

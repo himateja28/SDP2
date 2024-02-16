@@ -6,7 +6,7 @@ export default function Apply() {
     axios.post('http://localhost:8000/newvisa',{
       name:document.getElementById('name').value,
       email:document.getElementById('email').value,
-      adhaar:document.getElementById('anum').value,
+      aadhaar:document.getElementById('anum').value,
       // avatar:document.getElementById('avatar'),
       father_name:document.getElementById('fname').value,
       mother_name:document.getElementById('mname').value,
@@ -19,7 +19,7 @@ export default function Apply() {
   return (
     <div>
       <h1>Application for E-Visa </h1>
-      <form action="post">
+      <form action="post" onSubmit={handleSubmit}>
     <label htmlFor="">Welcome to E-visa</label>
     <input type="text" placeholder='Enter Your Name as per records' required id='name'/>
       <input type="email" placeholder='Enter Email' required id='email'/>
@@ -30,7 +30,7 @@ export default function Apply() {
       <input type="number" placeholder='Enter pincode'required id='pin'/>
       <input type="text" placeholder='Enter Address'required id='add'/>
       <input type="text" placeholder='Enter visa type'required id='visa'/>
-      <button onClick={handleSubmit}>Submit</button>
+      <button>Submit</button>
       </form>
     </div>
   )

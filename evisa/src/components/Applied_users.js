@@ -4,16 +4,13 @@ import {useState} from 'react'
 function Applied_users()
 {
     const handleAccept = ()=>{
-        let obj = {...r[0]}
-        obj.status="Accepted"
-        axios.post('http://localhost:8000/accepted',obj).then((res)=>{
+        axios.post('http://localhost:8000/accepted',r[0]).then((res)=>{
             console.log('Application accepted')
         })
     }
     const handleReject = ()=>{
         let obj = {...r[0]}
-        obj.status="rejected"
-        axios.post('http://localhost:8000/rejected',obj).then((res)=>{
+        axios.post('http://localhost:8000/rejected',r[0]).then((res)=>{
             console.log('Application rejected')
         })
     }
@@ -24,7 +21,6 @@ function Applied_users()
             console.log(res.data)
             setR(res.data)
         })
-        
     }
     
     return(
