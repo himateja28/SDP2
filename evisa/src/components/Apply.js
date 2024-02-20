@@ -2,7 +2,8 @@ import React from 'react'
 import axios from 'axios';
 export default function Apply() {
  
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     axios.post('http://localhost:8000/newvisa',{
       name:document.getElementById('name').value,
       email:document.getElementById('email').value,
@@ -13,13 +14,20 @@ export default function Apply() {
       pin_code:document.getElementById('pin').value,
       address:document.getElementById('add').value,
       applied_visa:document.getElementById('visa').value
+    }).then(response => {
+      // Handle successful response
+      console.log('Response data:', response.data);
     })
-
+    .catch(error => {
+      // Handle errors
+      console.error('Error:', error);
+    });
+    
   }
   return (
     <div>
       <h1>Application for E-Visa </h1>
-      <form action="post" onSubmit={handleSubmit}>
+      <form id='myForm' onSubmit={handleSubmit}>
     <label htmlFor="">Welcome to E-visa</label>
     <input type="text" placeholder='Enter Your Name as per records' required id='name'/>
       <input type="email" placeholder='Enter Email' required id='email'/>

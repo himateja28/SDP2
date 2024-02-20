@@ -147,7 +147,7 @@ app.post('/newvisa',async(req,res)=>{
         console.log(req.body)
         const newApply = new Apply(req.body);
         await newApply.save();
-        console.log(newApply.path('_id'))
+        res.send(newApply._id)
     }
     catch (error) {
         console.error('Error during registration:', error);
@@ -164,7 +164,7 @@ app.post('/accepted',async(req,res)=>{
         console.log(req.body)
         req.body.status = "Accepted"
         const newAcceptedVisa = new AcceptedVisa(req.body);
-        await newAcceptedVisa.save();
+        var result = await newAcceptedVisa.save();
         await Apply.deleteOne({_id:req.body._id})
     }
     catch (error) {
