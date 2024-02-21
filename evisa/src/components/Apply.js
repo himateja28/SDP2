@@ -16,6 +16,9 @@ export default function Apply() {
       applied_visa:document.getElementById('visa').value
     }).then(response => {
       // Handle successful response
+      var result = document.createElement('p')
+      result.innerHTML=`Your application is being processed! , Your token number is :  ${response.data}`
+      document.body.appendChild(result)
       console.log('Response data:', response.data);
     })
     .catch(error => {
