@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 function CheckStatus() {
+  const [status,setStatus]= useState('check token number')
   const handleSearch = () =>{
    const id = document.getElementById('aid').value
-    axios.post('http://localhost:8000/search',id).then({
+    axios.post('http://localhost:8000/search',{id}).then((res)=>{
+      var result = document.createElement('h1')
+      setStatus(JSON.stringify(res.data))
+      result.innerHTML = `Status : ${status}`
+      document.body.appendChild(result)
     })
   }
   return (

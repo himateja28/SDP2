@@ -173,6 +173,26 @@ app.post('/accepted',async(req,res)=>{
       }
 })
 
+app.post('/search',async(req,res)=>{
+    console.log(req.body.id)
+    var result = await Apply.findOne({_id:req.body.id})
+    if(result==null)
+    {
+        result = await AcceptedVisa.findOne({_id:req.body.id})
+    }
+    if(result==null)
+    {
+        result = await RejectedVisa.findOne({_id:req.body.id})
+    }
+    if(result==null)
+    {
+        res.send("Check token number and try again...")
+        return
+    }
+    console.log(result.status)
+    res.send(result.status)
+})
+
 app.post('/rejected',async(req,res)=>{
     try {
         console.log(req.body)
