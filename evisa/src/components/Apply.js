@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import axios from 'axios';
 export default function Apply() {
- 
+ const [status,setStatus] = useState('')
   const handleSubmit = (event) => {
     event.preventDefault();
     axios.post('http://localhost:8000/newvisa',{
@@ -15,11 +15,7 @@ export default function Apply() {
       address:document.getElementById('add').value,
       applied_visa:document.getElementById('visa').value
     }).then(response => {
-      // Handle successful response
-      var result = document.createElement('p')
-      result.innerHTML=`Your application is being processed! , Your token number is :  ${response.data}`
-      document.body.appendChild(result)
-      console.log('Response data:', response.data);
+      setStatus(`Your Application is being processed ! your application token number is ${response.data}`)
     })
     .catch(error => {
       // Handle errors
@@ -42,6 +38,7 @@ export default function Apply() {
       <input type="text" placeholder='Enter Address'required id='add'/>
       <input type="text" placeholder='Enter visa type'required id='visa'/>
       <button>Submit</button>
+      <div>{status}</div>
       </form>
     </div>
   )
