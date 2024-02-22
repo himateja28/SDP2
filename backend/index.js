@@ -159,6 +159,17 @@ app.get('/appiledusers',async(req,res)=>{
     res.send(await Apply.find())
 })
 
+app.post('/login',async(req,res)=>{
+    var result = await Register.findOne({email:req.body.un,password:req.body.pwd})
+    if(result==null)
+    {
+        res.send("Check crendtails correctly");
+        return
+    }
+    console.log(result)
+    res.send("Login succeful")
+})
+
 app.post('/accepted',async(req,res)=>{
     try {
         console.log(req.body)
