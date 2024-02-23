@@ -36,7 +36,24 @@ export default function Apply() {
       <input type="text" placeholder='Enter Mother name'required id='mname'/>
       <input type="number" placeholder='Enter pincode'required id='pin'/>
       <input type="text" placeholder='Enter Address'required id='add'/>
-      <input type="text" placeholder='Enter visa type'required id='visa'/>
+      <select placeholder='Select Visa type' id='visa'>
+      <option>None</option>
+      <option>Student visa</option>
+      <option>Tourist visa</option>
+      <option>Medical visa</option>
+      <option>Employee visa</option>
+      <option>Immigrant visa</option>
+      <option>Travel visa</option>
+      </select>
+      <select placeholder='Select country' id='visa'>
+      <option>None</option>
+      <option>USA</option>
+      <option>UK</option>
+      <option>France</option>
+      <option>Dubai</option>
+      <option>UAE</option>
+      <option>Srilanka</option>
+      </select>
       <button>Submit</button>
       <div>{status}</div>
       </form>

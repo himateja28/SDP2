@@ -1,13 +1,19 @@
 import React from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 function Register() {
-
+    const navigate = useNavigate();
     const handleSubmit = (event) => {
       event.preventDefault();
       const data = new FormData(event.currentTarget);
       axios.post('http://localhost:8000/newuser',{
         email:data.get('email'),
         password:data.get('pwd')
+      }).then((res)=>{
+        if(res.data==1)
+        {
+          navigate('/')
+        }
       })
     }
   return (

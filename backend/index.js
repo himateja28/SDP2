@@ -25,6 +25,11 @@ const registerSchema = msh({
       password: {
         type: String,
         required: true,
+      },
+      role:{
+        type: String,
+        required:true,
+        default:"user"
       }
 })
 
@@ -133,6 +138,7 @@ app.post('/newuser',async(req,res)=>{
         console.log(req.body)
         const newRegister = new Register(req.body);
         await newRegister.save();
+        res.send("1");
     }
     catch (error) {
         console.error('Error during registration:', error);
@@ -163,11 +169,11 @@ app.post('/login',async(req,res)=>{
     var result = await Register.findOne({email:req.body.un,password:req.body.pwd})
     if(result==null)
     {
-        res.send("Check crendtails correctly");
+        res.send("0");
         return
     }
     console.log(result)
-    res.send("Login succeful")
+    res.send('1')
 })
 
 app.post('/accepted',async(req,res)=>{
