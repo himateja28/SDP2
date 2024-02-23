@@ -11,6 +11,8 @@
 
  For run the project clone the this repo and enter the following command instructions 
 
+ make sure you have downloaded node in your device
+
  To run client
  ```
  cd evisa
@@ -27,3 +29,6 @@ npm init
 npm i
 npm run dev
 ```
+make sure that all packages used as part of the project should be installed 
+
+
