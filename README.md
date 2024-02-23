@@ -5,7 +5,7 @@
 
  
 
- The main of this project is to make paper less and fast processing of visa
+ The main idea of this project is to make paper less and fast processing of visa
 
  
 
