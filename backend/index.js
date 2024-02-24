@@ -15,14 +15,17 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Connection error:'));
 
 const registerSchema = msh({
-    email: {
+    name:{
+        type:String,
+        required:true,
+    },
+    email:{
         type: String,
         required: true,
         unique: true,
-        trim: true,
         lowercase: true, 
       },
-      password: {
+      password:{
         type: String,
         required: true,
       },

@@ -6,6 +6,7 @@ import Home from './components/Home';
 import {Routes, Route} from 'react-router-dom'
 import CheckStatus from './components/CheckStatus';
 import Login from './components/Login';
+import Navbar from './components/Navbar';
 // import './output.css';
 
 function App() {

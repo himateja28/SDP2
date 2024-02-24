@@ -1,11 +1,9 @@
-
+import React from 'react'
 import gov from '../assests/img11.png'
-import {Link} from 'react-router-dom'
-
-function Navbar() {
+function Navbar2() {
   return (
     <div>
-       <div class="navbar-logo-left">
+      <div class="navbar-logo-left">
         <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease"
             role="banner" class="navbar-logo-left-container shadow-three w-nav">
             <div class="container">
@@ -15,14 +13,8 @@ function Navbar() {
                     <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
                         <ul role="list" class="nav-menu-two w-list-unstyled">
                             <li><a href="#" class="nav-link">About us</a></li>
-                            <li><Link to="/apply" class="nav-link">Apply E-Visa</Link></li>
-                            <li><Link to="/check" class="nav-link">Check Status</Link></li>
-                            <li><Link to="/show" class="nav-link">Applications</Link></li>
                             <li>
                                 <div class="nav-divider"></div>
-                            </li>
-                            <li><a href="#team" class="nav-link-accent">Team</a></li>
-                            <li class="mobile-margin-top-10"><Link to="/apply" class="button-primary w-button">Apply Now</Link>
                             </li>
                         </ul>
                     </nav>
@@ -37,4 +29,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default Navbar2
