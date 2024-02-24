@@ -1,7 +1,17 @@
+ ## Online Evisa Processing System
+
 
  The Online Evisa processing system project was developed as part of university SDP project
 
+ 
+
+ The main idea of this project is to make paper less and fast processing of visa
+
+ 
+
  For run the project clone the this repo and enter the following command instructions 
+
+ make sure you have downloaded node in your device
 
  To run client
  ```
@@ -19,3 +29,6 @@ npm init
 npm i
 npm run dev
 ```
+make sure that all packages used as part of the project should be installed 
+
+
