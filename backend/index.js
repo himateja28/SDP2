@@ -79,6 +79,10 @@ const applySchema = msh({
         type:String,
         default:"Processing"
     },
+    file:{
+        type:String,
+        required : true
+    }
 })
 
 const acceptedSchema = msh({
@@ -124,6 +128,10 @@ const acceptedSchema = msh({
         type:String,
         default:"Processing"
     },
+    file:{
+        type:String,
+        required : true
+    }
 })
 
 const Register =  mongoose.model('Register',registerSchema);
@@ -150,11 +158,27 @@ app.post('/newuser',async(req,res)=>{
     
     
 })
-app.post('/newvisa',async(req,res)=>{
+
+const multer = require("multer");
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./uploads");
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now();
+    cb(null, uniqueSuffix + file.originalname);
+  },
+});
+const upload = multer({ storage: storage });
+app.post('/newvisa',upload.single('avatar'), async (req,res)=>{
     
     try {
-        console.log(req.body)
-        const newApply = new Apply(req.body);
+        console.log(req.file)
+        const visa = req.body
+        visa.file = req.file.filename
+        console.log(visa)
+        const newApply = new Apply(visa);
         await newApply.save();
         res.send(newApply._id)
     }
