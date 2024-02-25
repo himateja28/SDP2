@@ -8,8 +8,8 @@ function Login() {
     const navigate = useNavigate();
     function handleLogin(){
         axios.post('http://localhost:8000/login',{
-            un:document.getElementsByName('un')[0].value,
-            pwd:document.getElementsByName('pwd')[0].value
+            un:document.getElementById('email1').value,
+            pwd:document.getElementById('pwd').value
         }).then((res)=>{
             if(res.data==1)
             {

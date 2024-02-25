@@ -23,7 +23,6 @@ const registerSchema = msh({
         type: String,
         required: true,
         unique: true,
-        lowercase: true, 
       },
       password:{
         type: String,
@@ -194,13 +193,21 @@ app.get('/appiledusers',async(req,res)=>{
 
 app.post('/login',async(req,res)=>{
     var result = await Register.findOne({email:req.body.un,password:req.body.pwd})
+    console.log(result)
     if(result==null)
     {
         res.send("0");
         return
     }
     console.log(result)
+    if(result.role =="user")
+    {
     res.send('1')
+    }
+    if(result.role =="admin"||result.role=="hr")
+    {
+    res.send('2')
+    }
 })
 
 app.post('/accepted',async(req,res)=>{
