@@ -20,10 +20,7 @@
  npm start
  ```
 To run server
-
-```
-cd backend
-```
+go to backend directory and run the following commands to install dependencies and to run server
 ```
 npm init
 npm i
