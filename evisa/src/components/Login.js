@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import { MDBContainer, MDBCol, MDBRow, MDBBtn,MDBIcon, MDBInput, MDBCheckbox} from 'mdb-react-ui-kit';
 import { useNavigate } from 'react-router-dom';
 import pic from '../assests/img4.png'
 import Navbar2 from './Navbar2';
 function Login() {
-    const navigate = useNavigate();
+    const navigate = useNavigate(null);
     function handleLogin(){
         axios.post('http://localhost:8000/login',{
             un:document.getElementById('email1').value,
