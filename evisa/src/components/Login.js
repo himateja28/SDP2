@@ -1,21 +1,22 @@
-import React, { useState } from 'react'
 import axios from 'axios'
 import { MDBContainer, MDBCol, MDBRow, MDBBtn,MDBIcon, MDBInput, MDBCheckbox} from 'mdb-react-ui-kit';
 import { useNavigate } from 'react-router-dom';
-import pic from '../assests/img4.png'
+import pic from '../assests/avatar.png'
 import Navbar2 from './Navbar2';
 function Login() {
     const navigate = useNavigate(null);
     function handleLogin(){
+      const user = document.getElementById('email1').value
+      console.log(returnUser(user))
         axios.post('http://localhost:8000/login',{
             un:document.getElementById('email1').value,
             pwd:document.getElementById('pwd').value
         }).then((res)=>{
-            if(res.data==1)
+            if(res.data==='1')
             {
               navigate('/home')
             }
-            if(res.data==0)
+            if(res.data==='0')
             {
               alert("Check your credentails")
             }
@@ -26,6 +27,10 @@ function Login() {
         console.log('signup clicked')
         navigate('/register');
     }
+    function returnUser(user)
+    {
+      return user
+    }
   return (
     < div style={{backgroundColor:"rgba(245, 247,250, 1)"}}>
       
@@ -34,7 +39,7 @@ function Login() {
 
 
       <MDBRow>
-        <MDBCol col='10' md='6'>
+        <MDBCol col='6' md='5'>
           <img src={pic} class="img-fluid" alt="Phone image" />
         </MDBCol>
 
