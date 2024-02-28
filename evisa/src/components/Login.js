@@ -6,17 +6,15 @@ import Navbar2 from './Navbar2';
 function Login() {
     const navigate = useNavigate(null);
     function handleLogin(){
-      const user = document.getElementById('email1').value
-      console.log(returnUser(user))
         axios.post('http://localhost:8000/login',{
             un:document.getElementById('email1').value,
             pwd:document.getElementById('pwd').value
         }).then((res)=>{
-            if(res.data==='1')
+            if(res.data=='1')
             {
               navigate('/home')
             }
-            if(res.data==='0')
+            if(res.data=='0')
             {
               alert("Check your credentails")
             }
@@ -26,10 +24,6 @@ function Login() {
     {
         console.log('signup clicked')
         navigate('/register');
-    }
-    function returnUser(user)
-    {
-      return user
     }
   return (
     < div style={{backgroundColor:"rgba(245, 247,250, 1)"}}>
