@@ -198,32 +198,6 @@ function Home() {
             </div>
         </div>
     </section>
-    <section class="team-circles-2" id="team">
-        <div class="container-5">
-            <h2 class="centered-heading-3">Our Team</h2>
-            <p class="centered-subheading-3">we are the developers of this website..</p>
-            <div class="team-grid-2">
-                <div id="w-node-b13df095-66fc-287a-5412-55b1ac898e7e-68ca730e" class="team-card-2"><img
-                        src={myPic} loading="lazy" alt="" class="team-member-image-2" />
-                    <div class="team-member-name-2">M.Himateja</div>
-                    <div class="team-member-position-2">Role : Developer , Designer<br />‍Previously: Company 1, Company 2</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-                <div id="w-node-b13df095-66fc-287a-5412-55b1ac898e93-68ca730e" class="team-card-2"><img
-                        src="images/portfolio-202-20-20wide.svg" loading="lazy" alt="" class="team-member-image-2" />
-                    <div class="team-member-name-2">Hemanth</div>
-                    <div class="team-member-position-2">Role at Company<br />Previously: Company 1, Company 2</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-                <div id="w-node-b13df095-66fc-287a-5412-55b1ac898e89-68ca730e" class="team-card-2"><img
-                        src="images/portfolio-202-20-20wide.svg" loading="lazy" alt="" class="team-member-image-2" />
-                    <div class="team-member-name-2">Siva Prasad</div>
-                    <div class="team-member-position-2">Role at Company<br />Previously: Company 1, Company 2</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-        </div>
-    </section>
         </div>
     )
 }
