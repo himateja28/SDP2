@@ -6,6 +6,7 @@ import Home from './components/Home';
 import {Routes, Route} from 'react-router-dom'
 import CheckStatus from './components/CheckStatus';
 import Login from './components/Login';
+import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 // import './output.css';
 
@@ -20,6 +21,7 @@ function App() {
         <Route path='/check' element={<CheckStatus/>}/>
         <Route path='/show' element={<Applied_users/>}/>
       </Routes>
+      <Footer/>
   </div>
   );
 }
