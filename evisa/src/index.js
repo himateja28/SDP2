@@ -6,15 +6,20 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom'
+import {createStore} from 'redux'
+import rootReducer from './components/redux'
 
+const store = createStore(rootReducer)
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+const renderapp = ()=>root.render(
   <React.StrictMode>
     <BrowserRouter>
-    <App />
+    <App store={store}/>
     </BrowserRouter>
   </React.StrictMode>
 );
+renderapp();
+store.subscribe(renderapp)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

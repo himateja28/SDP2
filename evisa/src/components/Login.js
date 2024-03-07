@@ -3,9 +3,11 @@ import { MDBContainer, MDBCol, MDBRow, MDBBtn,MDBIcon, MDBInput, MDBCheckbox} fr
 import { useNavigate } from 'react-router-dom';
 import pic from '../assests/avatar.png'
 import Navbar2 from './Navbar2';
-function Login() {
+import Role from './Role';
+function Login({store}) {
     const navigate = useNavigate(null);
     function handleLogin(){
+      const user = document.getElementById('email1').value
         axios.post('http://localhost:8000/login',{
             un:document.getElementById('email1').value,
             pwd:document.getElementById('pwd').value
@@ -13,6 +15,15 @@ function Login() {
             if(res.data=='1')
             {
               navigate('/home')
+              // localStorage.setItem('username',user)
+              // localStorage.setItem('role','user')
+              store.dispatch({"type": "login","data":{"un":user,"role":"user"}})
+            }
+            if(res.data=='2')
+            {
+              navigate('/home')
+              store.dispatch({"type": "login","data":{"un":user,"role":"emp"}})
+              // ProctectedRoute('emp')
             }
             if(res.data=='0')
             {

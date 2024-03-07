@@ -2886,3 +2886,7 @@ textarea.w-input, textarea.w-select {
     grid-area: span 1/span 1/span 1 /span 1;
   }
 }
+
+#date-container{
+  display: none;
+}

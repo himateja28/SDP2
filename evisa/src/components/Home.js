@@ -41,7 +41,7 @@ function Home() {
                             <li><a href="#" class="nav-link">About us</a></li>
                             <li><Link to="/apply" class="nav-link">Apply E-Visa</Link></li>
                             <li><Link to="/check" class="nav-link">Check Status</Link></li>
-                            <li><Link to="/show" class="nav-link">Applications</Link></li>
+                            <li><Link to="/faq" class="nav-link">FAQ's</Link></li>
                             <li>
                                 <div class="nav-divider"></div>
                             </li>

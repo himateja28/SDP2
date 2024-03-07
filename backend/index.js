@@ -81,6 +81,10 @@ const applySchema = msh({
     file:{
         type:String,
         required : true
+    },
+    applied_by:{
+        type:String,
+        required:true
     }
 })
 
@@ -130,6 +134,10 @@ const acceptedSchema = msh({
     file:{
         type:String,
         required : true
+    },
+    applied_by:{
+        type:String,
+        required:true
     }
 })
 
