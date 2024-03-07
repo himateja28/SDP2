@@ -7,8 +7,6 @@ export default function AuthReducer(state=initState,action){
 localStorage.setItem("un",action.data.un)
             localStorage.setItem("role",action.data.role)
             return state
-        case "retrive":
-            return state
         case "logout":
 localStorage.removeItem("un")
             localStorage.removeItem("role")
