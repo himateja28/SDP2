@@ -3,6 +3,7 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const port = 8000
 const msh = mongoose.Schema;
+var nodemailer = require('nodemailer');
 const app = new express()
 
 app.use(express.json())
@@ -157,6 +158,28 @@ app.post('/newuser',async(req,res)=>{
         const newRegister = new Register(req.body);
         await newRegister.save();
         res.send("1");
+        var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'musunurihimateja@gmail.com',
+            pass: 'tzdeddcpfogpwhwu'
+        }
+        });
+
+        var mailOptions = {
+        from: 'musunurihimateja@gmail.com',
+        to: req.body.email,
+        subject: 'Welcome to Online E-visa Services',
+        text: 'welcome to our services we hope that you may use our services !'
+        };
+
+        transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent: ' + info.response);
+        }
+        });
     }
     catch (error) {
         console.error('Error during registration:', error);
