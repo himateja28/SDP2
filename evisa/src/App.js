@@ -8,12 +8,11 @@ import Sidebar  from './components/Sidebar';
 function App({store}) {
   return (
     < div className='App'>
-      {/* <Routes> */}
-        {/* <Route exact path='/' element={<Login store={store}/>}/> */}
-      {/* </Routes>  */}
-      {/* <Sidebar/> */}
+      <Routes>
+        <Route exact path='/' element={<Login store={store}/>}/>
+      </Routes> 
       {/* <Footer/> */}
-      <Sidebar/>
+      {/* <Sidebar/> */}
       <CustomRoutes/>
   </div>
   );

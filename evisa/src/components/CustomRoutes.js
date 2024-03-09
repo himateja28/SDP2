@@ -8,6 +8,7 @@ import CheckStatus from './CheckStatus';
 import Add from './Add';
 import Avisa from './Avisa';
 import Login from './Login';
+import Siderbar from './Sidebar';
 function CustomRoutes() {
 
 const role = localStorage.getItem('role')
@@ -26,6 +27,7 @@ if(role=='user'){
 else{
     return(
         <Routes>
+        <Route exact path='/sider' element={<Siderbar/>}/>
         <Route exact path='/home' element={<Home/>}/>
         <Route path='/apply' element={<Apply/>}/>
         <Route path='/register' element={<Register/>}/>

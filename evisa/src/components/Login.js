@@ -21,7 +21,7 @@ function Login({store}) {
             }
             if(res.data=='2')
             {
-              navigate('/home')
+              navigate('/sider')
               store.dispatch({"type": "login","data":{"un":user,"role":"emp"}})
               // ProctectedRoute('emp')
             }
