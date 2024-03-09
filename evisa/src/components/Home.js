@@ -11,6 +11,7 @@ import student from '../assests/student.png'
 import medi from '../assests/medi.png'
 import travel from '../assests/travel.png'
 import emp from '../assests/employee.png'
+import Footer from './Footer'
 import {Link} from 'react-router-dom'
 function Home() {
     const el = React.useRef(null);
@@ -65,7 +66,7 @@ function Home() {
                     <h1>One Place for all your E-visa <span style={{color:"red"}} ref={el} /></h1>
                     <p class="margin-bottom-24px">Here we provide all services about visa services. We Were most
                         concerend about your privacy and we are the responbiliity to ensure the service seamlessly and
-                        user friendly 😄....</p>
+                        user friendly ✈️....</p>
                 </div>
             </div>
         </div>
@@ -198,6 +199,7 @@ function Home() {
             </div>
         </div>
     </section>
+    <Footer/>
         </div>
     )
 }

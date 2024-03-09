@@ -5,6 +5,8 @@ import Register from './Register';
 import Home from './Home';
 import {Routes, Route} from 'react-router-dom'
 import CheckStatus from './CheckStatus';
+import Add from './Add';
+import Avisa from './Avisa';
 import Login from './Login';
 function CustomRoutes() {
 
@@ -29,6 +31,8 @@ else{
         <Route path='/register' element={<Register/>}/>
         <Route path='/check' element={<CheckStatus/>}/>
         <Route path='/show' element={<Applied_users/>}/>
+        <Route path='/addusers' element={<Add/>}/>
+        <Route path='/accepted' element={<Avisa/>}/>
       </Routes>
     )
 }

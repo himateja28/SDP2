@@ -3,7 +3,7 @@ import { MDBContainer, MDBCol, MDBRow, MDBBtn,MDBIcon, MDBInput, MDBCheckbox} fr
 import { useNavigate } from 'react-router-dom';
 import pic from '../assests/avatar.png'
 import Navbar2 from './Navbar2';
-import Role from './Role';
+// import Role from './Role';
 function Login({store}) {
     const navigate = useNavigate(null);
     function handleLogin(){

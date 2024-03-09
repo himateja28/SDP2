@@ -62,6 +62,12 @@ const applySchema = msh({
         type:String,
         // required:true,
     },
+    gender:{
+        type:String,
+    },
+    age:{
+        type:Number,
+    },
     pincode:{
         type:Number,
         // required:true,
@@ -75,6 +81,9 @@ const applySchema = msh({
         type:String,
         // required:true,
     },
+    applied_country :{
+        type:String
+    },
     status:{
         type:String,
         default:"Processing"
@@ -83,10 +92,10 @@ const applySchema = msh({
         type:String,
         required : true
     },
-    applied_by:{
-        type:String,
-        required:true
-    }
+    // applied_by:{
+    //     type:String,
+    //     required:true
+    // },
 })
 
 const acceptedSchema = msh({
@@ -115,6 +124,12 @@ const acceptedSchema = msh({
         type:String,
         // required:true,
     },
+    gender:{
+        type:String,
+    },
+    age:{
+        type:Number,
+    },
     pincode:{
         type:Number,
         // required:true,
@@ -128,6 +143,9 @@ const acceptedSchema = msh({
         type:String,
         // required:true,
     },
+    applied_country:{
+        type:String,
+    },
     status:{
         type:String,
         default:"Processing"
@@ -136,10 +154,10 @@ const acceptedSchema = msh({
         type:String,
         required : true
     },
-    applied_by:{
-        type:String,
-        required:true
-    }
+    // applied_by:{
+    //     type:String,
+    //     required:true
+    // }
 })
 
 const Register =  mongoose.model('Register',registerSchema);
@@ -158,28 +176,28 @@ app.post('/newuser',async(req,res)=>{
         const newRegister = new Register(req.body);
         await newRegister.save();
         res.send("1");
-        var transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: 'yourmail',
-            pass: 'yourpassword'
-        }
-        });
+        // var transporter = nodemailer.createTransport({
+        // service: 'gmail',
+        // auth: {
+        //     user: 'tempararymail28@gmail.com',
+        //     pass: 'tmgvgdrvkiczrtga'
+        // }
+        // });
 
-        var mailOptions = {
-        from: 'musunurihimateja@gmail.com',
-        to: req.body.email,
-        subject: 'Welcome to Online E-visa Services',
-        text: 'welcome to our services we hope that you may use our services !'
-        };
+        // var mailOptions = {
+        // from: 'tempararymail28@gmail.com',
+        // to: req.body.email,
+        // subject: 'Welcome to Online E-visa Services',
+        // text: 'welcome to our services we hope that you may use our services !'
+        // };
 
-        transporter.sendMail(mailOptions, function(error, info){
-        if (error) {
-            console.log(error);
-        } else {
-            console.log('Email sent: ' + info.response);
-        }
-        });
+        // transporter.sendMail(mailOptions, function(error, info){
+        // if (error) {
+        //     console.log(error);
+        // } else {
+        //     console.log('Email sent: ' + info.response);
+        // }
+        // });
     }
     catch (error) {
         console.error('Error during registration:', error);
@@ -216,6 +234,11 @@ app.post('/newvisa',upload.single('avatar'), async (req,res)=>{
         console.error('Error during registration:', error);
         res.status(500).json({ error: 'Internal Server Error' });
       }
+})
+
+app.get('/acceptedvisa',async(req,res)=>{
+    var result =  await AcceptedVisa.find()
+    res.send(result)
 })
 
 app.get('/appiledusers',async(req,res)=>{
@@ -272,7 +295,7 @@ app.post('/search',async(req,res)=>{
         return
     }
     console.log(result.status)
-    res.send(result.status)
+    res.send(result)
 })
 
 app.post('/rejected',async(req,res)=>{
