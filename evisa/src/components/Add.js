@@ -13,7 +13,8 @@ function handleSubmit()
       })
 }
   return (
-    <div>
+    <div className='add-user'>
+      <h1 style={{color:"red"}}>Add user</h1>
       Name : <input type="text"  id='un'/>
       Email : <input type="email"  id='email1'/>
       Password : <input type="password"  id='pwd'/>

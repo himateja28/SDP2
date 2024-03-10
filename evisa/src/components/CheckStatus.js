@@ -26,6 +26,7 @@ function CheckStatus() {
       <label htmlFor="applyid">Enter Application id </label>
       <input type="text" id='aid'/>
       <button onClick={handleSearch}>Search</button>
+      <h1>Status : {status}</h1>
     </div>
   )
 }

@@ -176,28 +176,28 @@ app.post('/newuser',async(req,res)=>{
         const newRegister = new Register(req.body);
         await newRegister.save();
         res.send("1");
-        // var transporter = nodemailer.createTransport({
-        // service: 'gmail',
-        // auth: {
-        //     user: 'tempararymail28@gmail.com',
-        //     pass: 'tmgvgdrvkiczrtga'
-        // }
-        // });
+        var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'tempararymail28@gmail.com',
+            pass: 'tmgvgdrvkiczrtga'
+        }
+        });
 
-        // var mailOptions = {
-        // from: 'tempararymail28@gmail.com',
-        // to: req.body.email,
-        // subject: 'Welcome to Online E-visa Services',
-        // text: 'welcome to our services we hope that you may use our services !'
-        // };
+        var mailOptions = {
+        from: 'tempararymail28@gmail.com',
+        to: req.body.email,
+        subject: 'Welcome to Online E-visa Services',
+        text: 'welcome to our services we hope that you may use our services !'
+        };
 
-        // transporter.sendMail(mailOptions, function(error, info){
-        // if (error) {
-        //     console.log(error);
-        // } else {
-        //     console.log('Email sent: ' + info.response);
-        // }
-        // });
+        transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent: ' + info.response);
+        }
+        });
     }
     catch (error) {
         console.error('Error during registration:', error);

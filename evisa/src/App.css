@@ -2890,3 +2890,16 @@ textarea.w-input, textarea.w-select {
 #date-container{
   display: none;
 }
+
+.add-user{
+  width: 300px;
+  height: 500px;
+  display: flex;
+  margin-top: 90px;
+  margin-left: 500px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2895f7;
+  border:5px solid black ;
+}
