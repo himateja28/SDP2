@@ -4,6 +4,7 @@ import img from '../assests/img2.png'
 export default function Apply() {
  const [status,setStatus] = useState('')
  const [file, setFile] = useState("");
+ const [toggle,setToggle] = useState(0)
   const handleSubmit = async(event) => {
     event.preventDefault();
     const file = document.getElementById('avatar1').files[0]
@@ -25,7 +26,8 @@ export default function Apply() {
     }, {
       headers: { "Content-Type": "multipart/form-data" },
     }).then(response => {
-      setStatus(`Your Application is being processed ! your application token number is ${response.data}`)
+      setStatus(response.data)
+      setToggle(1)
     })
     .catch(error => {
       // Handle errors
@@ -33,6 +35,15 @@ export default function Apply() {
     });
     
   }
+  if(toggle == 1) 
+  {
+    return(
+      <div style={{width:"400px",height:"400px",border:"2px solid black"}}>
+        <h1>Your Application is being processed</h1>
+        <h2>Application token number {status}</h2>
+      </div>
+    )
+  }else{
   return (
     <>
     <div style={{display:"flex",alignItems:"center",flexDirection:"column",backgroundColor:"#1d97c5"}}>
@@ -90,7 +101,9 @@ export default function Apply() {
     <fieldset style={{padding:"10px"}}>
       <legend>Upload Documents:</legend>
       <label for="passportPhoto">Passport Size Photo:</label><br/>
-      <input type="file" id="avatar1" name="avatar1" accept=".jpg, .jpeg, .png" required/><br/><br/>
+      <input type="file" id="avatar1" name="avatar1" required/><br/><br/>
+      <label htmlFor="Aaadhhar">upload any government id</label>
+      <input type="file" id="gid" name="gid" required/><br/><br/>
     </fieldset>
 
     <fieldset style={{padding:"10px"}}>
@@ -103,10 +116,8 @@ export default function Apply() {
    <button onClick={handleSubmit}>Apply</button>
   </form>
   <br /><br />
-
-  <div>{status}</div>
-
   </div>
   </>
   )
+    }
 }

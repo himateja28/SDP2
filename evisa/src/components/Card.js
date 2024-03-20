@@ -10,7 +10,7 @@ function Card(props) {
     <div className="Group1" style={{width: 611, height: 500, left: 0, top: 0, position: 'absolute'}}>
         <div className="Rectangle1" style={{width: 611, height: 327, left: 0, top: 0, position: 'absolute', background: '#88D4FF', borderRadius: 35}} />
         <div className="MinistryOfHomeAffairs" style={{left: 194, top: 60, position: 'absolute', color: 'black', fontSize: 18, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>Ministry of Home Affairs</div>
-        <img className="Ellipse1" style={{width: 136, height: 118, left: 424, top: 108, position: 'absolute', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25) inset', borderRadius: 9999}} src={profile} />
+        <img className="Ellipse1" style={{width: 136, height: 118, left: 424, top: 108, position: 'absolute', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25) inset', borderRadius: 9999}} src={props.props.file} />
         <div className="GovernmentOfIndia" style={{left: 143, top: 17, position: 'absolute', color: '#FF0000', fontSize: 30, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>Government of India   </div>
         <img className="Rectangle2" style={{width: 58, height: 57, left: 74, top: 18, position: 'absolute'}} src={img11} />
         <img className="Rectangle3" style={{width: 58, height: 57, left: 447, top: 18, position: 'absolute'}} src={img13}/>

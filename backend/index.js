@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
 const port = 8000
+const cloudinary = require('cloudinary').v2
 const msh = mongoose.Schema;
 var nodemailer = require('nodemailer');
 const app = new express()
@@ -224,8 +225,20 @@ app.post('/newvisa',upload.single('avatar'), async (req,res)=>{
     try {
         console.log(req.file)
         const visa = req.body
-        visa.file = req.file.filename
-        console.log(visa)
+        // visa.file = req.file.filename
+       
+        cloudinary.config({ 
+            cloud_name: 'dfoietygj', 
+            api_key: YOUR_API_KEY, 
+            api_secret: YOUR_API_SECRET
+          });          
+       await cloudinary.uploader.upload(req.file.path,
+            { public_id: `${req.body.name}photo` },
+             function (error, result) { 
+                console.log(`The file Url is ${result.url}`)
+                visa.file = result.url
+             });
+             console.log(visa)
         const newApply = new Apply(visa);
         await newApply.save();
         res.send(newApply._id)

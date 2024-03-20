@@ -24,6 +24,7 @@
     "react-pro-sidebar": "^1.1.0",
     "react-router-dom": "^6.22.1",
     "react-scripts": "5.0.1",
+    "react-toastify": "^10.0.4",
     "reactdom": "^2.0.0",
     "redux": "^5.0.1",
     "typed.js": "^2.1.0",
